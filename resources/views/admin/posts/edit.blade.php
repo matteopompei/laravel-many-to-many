@@ -26,6 +26,19 @@
               </div>
 
               <div class="form-group">
+                <label>Tag</label>
+                @foreach ($tags as $tag)
+                  <div class="form-check">
+                    <input class="form-check-input" name="tags[]" type="checkbox" value="{{ $tag->id }}"
+                      {{ $post->tags->contains($tag) ? ' checked' : '' }}>
+                    <label class="form-check-label" for="{{ $tag->slug }}">
+                      {{ $tag->name }}
+                    </label>
+                  </div>
+                @endforeach
+              </div>
+
+              <div class="form-group">
                 <label>Categoria</label>
                 <select name="category_id" class="form-control @error('content') is-invalid @enderror">
                   <option value="" selected disabled hidden>Seleziona una categoria</option>

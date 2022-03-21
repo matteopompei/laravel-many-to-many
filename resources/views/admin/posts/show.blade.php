@@ -10,6 +10,11 @@
           <div class="card-body">
 
             {{ $post->content }}
+            <br>
+            <br>
+            @foreach ($post->tags as $tag)
+              {{ $tag->name }}
+            @endforeach
 
           </div>
         </div>
